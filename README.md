@@ -1,6 +1,5 @@
-markdown
-Copy code
-# Autonomous Vehicle Navigation using NVIDIA Jetson and YOLOv5
+
+### Autonomous Vehicle Navigation using NVIDIA Jetson and YOLOv5
 
 This project was created for the class Intelligent Robotics Systems in collaboration with Manchester Robotics. It is primarily developed by three students: Hilda Beltran, Diego Diaz, and Iñaki Roman. The aim of this project is to utilize the Puzzlebot provided by Manchester Robotics and create an autonomous vehicle capable of navigating through a track and detecting signals using YOLOv5 and computer vision techniques.
 
