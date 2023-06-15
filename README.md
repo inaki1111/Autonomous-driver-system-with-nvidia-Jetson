@@ -94,12 +94,11 @@ Your NVIDIA Jetson Nano is now booted with Ubuntu 18.04 and ready for further co
 
 Note: These instructions are specific to the NVIDIA Jetson Nano (2GB) model and Ubuntu 18.04. Make sure to follow the official documentation provided by NVIDIA for the specific Jetson model you are using to ensure the correct installation and setup process.
 
-# Yolov5
+## Yolov5
 
-3. Install YOLOv5 and train it with a custom dataset. You can follow the steps outlined in this [Medium article](https://medium.com/mlearning-ai/training-yolov5-custom-dataset-with-ease-e4f6272148ad).
+ Install YOLOv5 and train it with a custom dataset. You can follow the steps outlined in this [Medium article](https://medium.com/mlearning-ai/training-yolov5-custom-dataset-with-ease-e4f6272148ad).
 
-
-## Models Trained for Classification
+# Models Trained for Classification
 
 We have chosen to use YOLOv5 for our autonomous vehicle navigation project due to its exceptional performance in object detection tasks. YOLOv5 is a state-of-the-art algorithm known for its speed and accuracy in real-time object detection. It can detect and classify objects with impressive precision, making it an ideal choice for our application. With YOLOv5, our vehicle will be able to accurately identify and track various objects, including signals, on the track in real-time. The model's efficiency and speed will enable our autonomous vehicle to navigate swiftly and make informed decisions based on the detected objects. Overall, YOLOv5 provides the robustness and reliability necessary for successful object detection, making it the optimal choice for our project.
 
@@ -207,7 +206,7 @@ YOLOv5x6
 
 
 
-## Usage
+### Usage
 
 1. Start the ROS environment and launch the necessary nodes for communication with the Puzzlebot and other components.
 
@@ -217,15 +216,15 @@ YOLOv5x6
 
 3. Monitor the vehicle's progress, detected signals, and any debug information through the provided user interface or visualization tools.
 
-## Contributing
+### Contributing
 
 Contributions to this project are welcome. If you encounter any issues or have suggestions for improvements, please open an issue or submit a pull request. When contributing, please follow the coding standards and conventions used in the project.
 
-## License
+### License
 
 [MIT License](LICENSE)
 
-## Acknowledgments
+### Acknowledgments
 
 We would like to express our gratitude to Manchester Robotics for providing the Puzzlebot and their support throughout this project. We are thankful for the guidance and instruction provided by the following professors at Tec de Monterrey:
 
@@ -243,7 +242,7 @@ We would also like to acknowledge the following individuals who provided additio
 
 For those seeking more knowledge on deep learning, we highly recommend checking out Dr. Jose Antonio Cantoral's YouTube channel for insightful content: [Dr. Jose Antonio Cantoral on YouTube](https://www.youtube.com/@PepeCantoralPhD)
 
-## Authors
+### Authors
 
 - Hilda Beltran
 - Diego Diaz
