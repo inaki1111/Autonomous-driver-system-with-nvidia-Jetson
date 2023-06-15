@@ -13,6 +13,45 @@ This project was created for the class Intelligent Robotics Systems in collabora
 
 ## Installation
 
+To install Ubuntu 18.04 on a laptop with dual boot and ROS, follow these instructions:
+
+Prepare the installation media:
+
+Download the Ubuntu 18.04 ISO file from the official Ubuntu website (https://ubuntu.com/download).
+Create a bootable USB drive using software like Rufus (for Windows) or Etcher (for Windows, macOS, and Linux). Follow the instructions provided by the software to create the bootable USB drive.
+Backup your data:
+
+Before proceeding with the installation, it is highly recommended to backup all important data from your laptop to an external storage device. This ensures that your data is safe in case of any unforeseen issues during the installation process.
+Adjust partition size (if required):
+
+If you already have another operating system installed on your laptop, such as Windows, you may need to adjust the partition size to make space for Ubuntu. You can use disk management tools like GParted (https://gparted.org/) to resize existing partitions and create free space for Ubuntu installation.
+Boot from the installation media:
+
+Insert the bootable USB drive into your laptop.
+Restart the laptop and access the BIOS/UEFI settings by pressing the appropriate key during startup (usually Esc, F2, or Del). Consult your laptop's manual or search online for the specific key to access the BIOS/UEFI settings.
+In the BIOS/UEFI settings, change the boot order to prioritize the USB drive. Save the changes and exit the BIOS/UEFI settings.
+Install Ubuntu 18.04:
+
+The laptop should now boot from the USB drive and present the Ubuntu installation screen.
+Select "Install Ubuntu" from the menu.
+Follow the on-screen instructions to choose your language, keyboard layout, and other preferences.
+When prompted to select the installation type, choose "Something else" (for dual boot).
+In the partitioning screen, select the free space you created earlier and click the "+" button to create a new partition.
+Create at least two partitions: one for the root file system ("/") and one for the swap space. You can allocate more partitions based on your specific requirements.
+Make sure to select the correct partition to install the root file system ("/").
+Complete the installation process by following the remaining on-screen instructions, including creating a user account and setting up a password.
+Install ROS:
+
+Once Ubuntu 18.04 is installed and you have logged in, open a terminal.
+Follow the official ROS installation instructions for ROS Melodic (http://wiki.ros.org/melodic/Installation/Ubuntu) to install ROS on your laptop.
+Proceed with the installation of ROS packages and dependencies as required by your specific project or application.
+Dual boot configuration:
+
+After installing Ubuntu and ROS, you should have the option to choose between Ubuntu and the other operating system (e.g., Windows) during startup.
+Restart your laptop and select the desired operating system from the boot menu.
+Congratulations! You have successfully installed Ubuntu 18.04 with dual boot and ROS on your laptop. You can now start using Ubuntu and ROS for your robotics projects.
+
+
 To boot an NVIDIA Jetson with Ubuntu 18.04, follow these instructions:
 
 Obtain the necessary hardware:
@@ -55,12 +94,7 @@ Your NVIDIA Jetson Nano is now booted with Ubuntu 18.04 and ready for further co
 
 Note: These instructions are specific to the NVIDIA Jetson Nano (2GB) model and Ubuntu 18.04. Make sure to follow the official documentation provided by NVIDIA for the specific Jetson model you are using to ensure the correct installation and setup process.
 
-
-
-
-2. Set up the environment by installing the required dependencies. You can use the following commands as a starting point:
-- Instructions for installing ROS Melodic can be found [here](http://wiki.ros.org/noetic/Installation/Ubuntu).
-- Instructions for installing NVIDIA Jetson SDK Manager can be found [here](https://developer.nvidia.com/sdk-manager).
+# Yolov5
 
 3. Install YOLOv5 and train it with a custom dataset. You can follow the steps outlined in this [Medium article](https://medium.com/mlearning-ai/training-yolov5-custom-dataset-with-ease-e4f6272148ad).
 
