@@ -207,7 +207,7 @@ We would like to express our gratitude to Manchester Robotics for providing the 
 - Dr. Francisco Javier Navarro Barrón
 
 
-# For those seeking more knowledge on deep learning, we highly recommend checking out Dr. Jose Antonio Cantoral's YouTube channel for insightful content. Dr. Cantoral's channel offers valuable resources and educational videos related to deep learning, helping you enhance your understanding and skills in this field. Make sure to explore the channel and subscribe for regular updates and informative content. https://www.youtube.com/@PepeCantoralPhD
+For those seeking more knowledge on deep learning, we highly recommend checking out Dr. Jose Antonio Cantoral's YouTube channel for insightful content. Dr. Cantoral's channel offers valuable resources and educational videos related to deep learning, helping you enhance your understanding and skills in this field. Make sure to explore the channel and subscribe for regular updates and informative content. https://www.youtube.com/@PepeCantoralPhD
 
 # Authors:
 - Hilda Beltran
