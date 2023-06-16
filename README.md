@@ -1,8 +1,8 @@
-##                                                         Autonomous Vehicle Navigation using NVIDIA Jetson and YOLOv5
+##                                                      Autonomous Vehicle Navigation using NVIDIA Jetson and YOLOv5
 
 This project was created for the class Intelligent Robotics Systems in collaboration with Manchester Robotics. It is primarily developed by three students: Hilda Beltran, Diego Diaz, and Iñaki Roman. The aim of this project is to utilize the Puzzlebot provided by Manchester Robotics and create an autonomous vehicle capable of navigating through a track and detecting signals using YOLOv5 and computer vision techniques.
 
-#                                                                                 System Requirements
+##                                                                                 System Requirements
 
 NVIDIA Jetson Nano (2GB)
 Manchester Robotics Hackerboard
@@ -11,11 +11,11 @@ ROS Melodic
 Python 2 and 3
 YOLOv5 with custom dataset
 
-#                                                                                       Installation
+##                                                                                       Installation
 
 
 
-## Install ubuntu
+# Install ubuntu
 
 To install Ubuntu 18.04 on a laptop with dual boot and ROS, follow these instructions:
 
@@ -93,31 +93,36 @@ Update the system:
 Open a terminal on the Jetson Nano.
 Run the following commands to update the system:
 
-'''sudo apt update
-sudo apt upgrade'''
+´´´ bash
+sudo apt update
+sudo apt upgrade´´´
 
 Your NVIDIA Jetson Nano is now booted with Ubuntu 18.04 and ready for further configuration and development.
 
 Note: These instructions are specific to the NVIDIA Jetson Nano (2GB) model and Ubuntu 18.04. Make sure to follow the official documentation provided by NVIDIA for the specific Jetson model you are using to ensure the correct installation and setup process.
 
-Yolov5
+## Use Yolov5 for data classification and train with a custom dataset
+
 Install YOLOv5 and train it with a custom dataset. You can follow the steps outlined in this Medium article.
 
 Models Trained for Classification
 We have chosen to use YOLOv5 for our autonomous vehicle navigation project due to its exceptional performance in object detection tasks. YOLOv5 is a state-of-the-art algorithm known for its speed and accuracy in real-time object detection. It can detect and classify objects with impressive precision, making it an ideal choice for our application. With YOLOv5, our vehicle will be able to accurately identify and track various objects, including signals, on the track in real-time. The model's efficiency and speed will enable our autonomous vehicle to navigate swiftly and make informed decisions based on the detected objects. Overall, YOLOv5 provides the robustness and reliability necessary for successful object detection, making it the optimal choice for our project.
 
-This tutorial was taken directly from the ultralytics repository (https://github.com/ultralytics/yolov5). See the YOLOv5 Docs for full documentation on training, testing, and deployment. See below for quickstart examples.
+# This tutorial was taken directly from the ultralytics repository (https://github.com/ultralytics/yolov5). See the YOLOv5 Docs for full documentation on training, testing, and deployment. See below for quickstart examples.
 
 Install:
-Clone the repo and install requirements.txt in a Python>=3.7.0 environment, including PyTorch>=1.7.
+bash'''
+Clone the repo and install requirements.txt in a Python>=3.7.0 environment, including PyTorch>=1.7. 
 
 git clone https://github.com/ultralytics/yolov5
 cd yolov5
-pip install -r requirements.txt
+pip install -r requirements.txt  '''
 
 Inference:
+
 YOLOv5 PyTorch Hub inference. Models download automatically from the latest YOLOv5 release.
 
+'''python
 import torch
 
 # Model
@@ -131,9 +136,12 @@ results = model(img)
 
 # Results
 results.print()  # or .show(), .save(), .crop(), .pandas(), etc.
+'''
 
-Inference with detect.py:
+ # Inference with detect.py:
+ 
 detect.py runs inference on a variety of sources, downloading models automatically from the latest YOLOv5 release and saving results to runs/detect.
+''' bash
 
 python detect.py --weights yolov5s.pt --source 0                               # webcam
 python detect.py --weights yolov5s.pt --source img.jpg                         # image
@@ -144,18 +152,19 @@ python detect.py --weights yolov5s.pt --source list.txt                        #
 python detect.py --weights yolov5s.pt --source list.streams                    # list of streams
 python detect.py --weights yolov5s.pt --source 'path/*.jpg'                    # glob
 python detect.py --weights yolov5s.pt --source 'https://youtu.be/Zgi9g1ksQHc'  # YouTube
-python detect.py --weights yolov5s.pt --source 'rtsp://example.com/media.mp4'  # RTSP, RTMP, HTTP stream
+python detect.py --weights yolov5s.pt --source 'rtsp://example.com/media.mp4'  # RTSP, RTMP, HTTP stream '''
 
-Training:
+# Training:
 The commands below reproduce YOLOv5 COCO results. Models and datasets download automatically from the latest YOLOv5 release. Training times for YOLOv5n/s/m/l/x are 1/2/4/6/8 days on a V100 GPU (Multi-GPU times faster). Use the largest --batch-size possible, or pass --batch-size -1 for YOLOv5 AutoBatch. Batch sizes shown for V100-16GB.
 
+'''bash
 python train.py --data coco.yaml --epochs 300 --weights '' --cfg yolov5n.yaml  --batch-size 128
 python train.py --data coco.yaml --epochs 300 --weights '' --cfg yolov5s.yaml  --batch-size 64
 python train.py --data coco.yaml --epochs 300 --weights '' --cfg yolov5m.yaml  --batch-size 40
 python train.py --data coco.yaml --epochs 300 --weights '' --cfg yolov5l.yaml  --batch-size 24
-python train.py --data coco.yaml --epochs 300 --weights '' --cfg yolov5x.yaml  --batch-size 16
+python train.py --data coco.yaml --epochs 300 --weights '' --cfg yolov5x.yaml  --batch-size 16  '''
 
-Pretrained Checkpoints:
+ # Pretrained Checkpoints (perfonace of the different model and the proccessing power needed top run them):
 
 Model   | Size (pixels) | mAPval 50-95 | mAPval 50 | Speed CPU b1 (ms) | Speed V100 b1 (ms) | Speed V100 b32 (ms) | Params (M) | FLOPs @640 (B)
 ---------|---------------|--------------|-----------|-------------------|---------------------|---------------------|------------|-----------------
@@ -170,12 +179,24 @@ YOLOv5m6| 1280          | 51.3         | 69.3      | 887               | 11.1   
 YOLOv5l6| 1280          | 53.7         | 71.3      | 1784              | 15.8                | 10.5                | 76.8       | 111.4
 YOLOv5x6 TTA | 1280/1536 | 55.0/55.8    | 72.7/72.7 | 3136              | 26.2                | 19.4                | 140.7      | 209.8
 
-Usage:
-Start the ROS environment and launch the necessary nodes for communication with the Puzzlebot and other components.
+## Usage:
+In order to launch the files successfully on the NVIDIA Jetson, you need to ensure that you are connected to the Jetson via its hotspot. This will establish a stable connection between your device and the Jetson for seamless communication.
+
+Once connected, you'll need to grant the camera permission to boot up. This step allows the camera module to initialize and become ready for capturing images or videos.
+
+Next, you can start the camera in the desired resolution. Adjusting the resolution ensures that you capture images or videos at the appropriate quality for your application. This step helps optimize the performance and output of the camera module.
+
+After the camera is up and running, you can proceed to run the Python ROS code for your deep learning model. This code implements the necessary algorithms and techniques to perform the desired tasks using the Jetson's processing capabilities. It leverages the power of deep learning to achieve accurate and efficient results.
+
+Finally, if your project involves line following, you can launch the line following model. This model utilizes computer vision and machine learning techniques to track and follow a line, making it ideal for applications such as autonomous navigation or robotic systems.
+
+By following these steps, you can effectively launch the required files and leverage the capabilities of the NVIDIA Jetson to accomplish your project goals.
+
+
 
 Contributions to this project are welcome. If you encounter any issues or have suggestions for improvements, please open an issue or submit a pull request. When contributing, please follow the coding standards and conventions used in the project.
 
-License:
+# License:
 MIT License
 
 # Acknowledgments:
@@ -186,7 +207,7 @@ We would like to express our gratitude to Manchester Robotics for providing the 
 - Dr. Francisco Javier Navarro Barrón
 
 
-# For those seeking more knowledge on deep learning, we highly recommend checking out Dr. Jose Antonio Cantoral's YouTube channel for insightful content: Dr. Jose Antonio Cantoral on YouTube
+# For those seeking more knowledge on deep learning, we highly recommend checking out Dr. Jose Antonio Cantoral's YouTube channel for insightful content. Dr. Cantoral's channel offers valuable resources and educational videos related to deep learning, helping you enhance your understanding and skills in this field. Make sure to explore the channel and subscribe for regular updates and informative content. https://www.youtube.com/@PepeCantoralPhD
 
 # Authors:
 - Hilda Beltran
