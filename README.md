@@ -1,7 +1,9 @@
-## Autonomous Vehicle Navigation using NVIDIA Jetson and YOLOv5
+##                                                         Autonomous Vehicle Navigation using NVIDIA Jetson and YOLOv5
+
 This project was created for the class Intelligent Robotics Systems in collaboration with Manchester Robotics. It is primarily developed by three students: Hilda Beltran, Diego Diaz, and Iñaki Roman. The aim of this project is to utilize the Puzzlebot provided by Manchester Robotics and create an autonomous vehicle capable of navigating through a track and detecting signals using YOLOv5 and computer vision techniques.
 
-System Requirements
+#                                                                                 System Requirements
+
 NVIDIA Jetson Nano (2GB)
 Manchester Robotics Hackerboard
 Ubuntu 18.04
@@ -9,7 +11,12 @@ ROS Melodic
 Python 2 and 3
 YOLOv5 with custom dataset
 
-Installation
+#                                                                                       Installation
+
+
+
+## Install ubuntu
+
 To install Ubuntu 18.04 on a laptop with dual boot and ROS, follow these instructions:
 
 Prepare the installation media:
@@ -37,7 +44,9 @@ Create at least two partitions: one for the root file system ("/") and one for t
 Make sure to select the correct partition to install the root file system ("/").
 Complete the installation process by following the remaining on-screen instructions, including creating a user account and setting up a password.
 
-Install ROS:
+
+# Install ROS
+
 Once Ubuntu 18.04 is installed and you have logged in, open a terminal.
 Follow the official ROS installation instructions for ROS Melodic (http://wiki.ros.org/melodic/Installation/Ubuntu) to install ROS on your laptop.
 Proceed with the installation of ROS packages and dependencies as required by your specific project or application.
@@ -47,6 +56,9 @@ After installing Ubuntu and ROS, you should have the option to choose between Ub
 Restart your laptop and select the desired operating system from the boot menu.
 
 Congratulations! You have successfully installed Ubuntu 18.04 with dual boot and ROS on your laptop. You can now start using Ubuntu and ROS for your robotics projects.
+
+
+# Boot NVIDIA Jetson nano with custom ISO
 
 To boot an NVIDIA Jetson with Ubuntu 18.04, follow these instructions:
 Obtain the necessary hardware:
@@ -81,8 +93,8 @@ Update the system:
 Open a terminal on the Jetson Nano.
 Run the following commands to update the system:
 
-sudo apt update
-sudo apt upgrade
+'''sudo apt update
+sudo apt upgrade'''
 
 Your NVIDIA Jetson Nano is now booted with Ubuntu 18.04 and ready for further configuration and development.
 
@@ -166,22 +178,17 @@ Contributions to this project are welcome. If you encounter any issues or have s
 License:
 MIT License
 
-Acknowledgments:
+# Acknowledgments:
 We would like to express our gratitude to Manchester Robotics for providing the Puzzlebot and their support throughout this project. We are thankful for the guidance and instruction provided by the following professors at Tec de Monterrey:
 - Dr. Jesús Arturo Escobedo Cabello
 - Dr. Jose Antonio Cantoral Ceballos
 - Dr. Josué González García
 - Dr. Francisco Javier Navarro Barrón
 
-We would also like to acknowledge the following individuals who provided additional knowledge and assistance during the development of this project:
-- Enrique Martinez
-- Javier Suarez
-- Daniel Figueroa
-- Diego Alfonso
 
-For those seeking more knowledge on deep learning, we highly recommend checking out Dr. Jose Antonio Cantoral's YouTube channel for insightful content: Dr. Jose Antonio Cantoral on YouTube
+# For those seeking more knowledge on deep learning, we highly recommend checking out Dr. Jose Antonio Cantoral's YouTube channel for insightful content: Dr. Jose Antonio Cantoral on YouTube
 
-Authors:
+# Authors:
 - Hilda Beltran
 - Diego Diaz
 - Iñaki Roman
