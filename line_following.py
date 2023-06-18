@@ -17,7 +17,7 @@ from std_msgs.msg import String
 class line_detector(object): 
 
 
-    def __init__(self): 
+    def _init_(self): 
 
         rospy.on_shutdown(self.cleanup) 
         
@@ -25,10 +25,11 @@ class line_detector(object):
         rospy.Subscriber("/video_source/raw",Image,self.camera_callback) 
         rospy.Subscriber("/detected_classes",String,self.classes_callback)
         #rospy.Subscriber("/camera/image_raw",Image,self.camera_callback) 
+
         self.cmd_vel_pub = rospy.Publisher("/cmd_vel", Twist, queue_size=1) 
         self.image_publisher = rospy.Publisher('/cross_image', Image, queue_size=1)
         robot_vel = Twist() #The robot's velocity 
-        #self.image_pub = rospy.Publisher("/segmented_image",Image)
+        
 
         robot_vel.linear.x=0
         robot_vel.angular.z=0
@@ -73,10 +74,6 @@ class line_detector(object):
 
         #self.detected_classes = []
 
-        #r = rospy.Rate(20) #10Hz  
-              
-    
-          # Establece el tiempo de inicio
         self.current_time = 0
         self.cross_sum = 0
 
@@ -270,17 +267,16 @@ class line_detector(object):
     def update(self):
         if self.image_received:
             vertical_sum = np.sum(self.gray, axis=0)
-            sorted_indices = np.argsort(vertical_sum)
-            n_smallest_values = 5
-            smallest_values = sorted_indices[:n_smallest_values]
+            indices = np.argsort(vertical_sum)
+            n = 5
+            smallest_values = indices[:n]
             self.average_value = np.mean(smallest_values)
             self.average_value = int(self.average_value)
             ###########################################
 
-            horizontal_sum_cross = np.sum(self.gray2, axis=1)
-            self.cross_sum = np.sum(horizontal_sum_cross)
-            #self.cross_sum = self.average_value
-            #print(self.cross_sum)
+            sum_cross = np.sum(self.gray2, axis=1)
+            self.cross_sum = np.sum(sum_cross)
+            
             ###########CONTROL#############
             K1=self.kp+self.Ts*self.ki+self.kd/self.Ts
             K2=-self.kp-2.0*self.kd/self.Ts
@@ -363,7 +359,7 @@ class line_detector(object):
         self.cmd_vel_pub.publish(vel_msg)
 
 
-if __name__ == '__main__': 
+if _name_ == '_main_': 
 
     rospy.init_node('line_detector', anonymous=True) 
 
